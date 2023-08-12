@@ -1,0 +1,118 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
+    background-color: rgb(249, 245, 239);
+    color: white;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: top;
+    height: 100vh;
+    background-size: cover;
+}
+
+h1 {
+    padding-top: 5rem;
+    font-size: 2.5rem;
+}
+
+.box {
+    width: 300px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5rem;
+    gap: 50px;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+/* Für Tablets */
+@media (min-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+    .box {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+/* Für Desktop */
+@media (min-width: 1024px) {
+    h1 {
+        font-size: 4rem;
+        color: black;
+    }
+    .box {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+/* Für Handys */
+@media (max-width: 767px) {
+    body {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.25)), url('Carina.jpg');
+        background-size: cover; /* Das Bild wird so skaliert, dass es den gesamten Container füllt */
+        background-repeat: no-repeat; /* Das Bild wird nicht wiederholt */
+        background-position: center center;
+    }
+
+}
+
+/* Verstecken Sie die Elemente zu Beginn */
+h1, .box, .box > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+/* Klasse, die später mit JavaScript hinzugefügt wird, um die Elemente sichtbar zu machen */
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.5s;
+}
+
+a.show-underline::after {
+    width: 100%;
+}
+
+a:hover {
+    transform: translateY(-5px) scale(1.05); /* leicht nach oben bewegen und vergrößern */
+    transition: transform 0.3s; /* sanfte Animation */
+}
